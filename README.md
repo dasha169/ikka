@@ -2,9 +2,11 @@ IKKA: Inversion Classification via Critical Anomalies
 Topologically motivated anomaly-weighting framework for robust visual servoing under distribution shift.
 
 Overview
-IKKA introduces a topological anomaly weight
+IKKA introduces a topological anomaly weight:
 
-W(x)=E(x)⋅T(x)⋅M(x) where:
+W(x) = E(x) · T(x) · M(x)
+
+where:
 
 E(x) — local extremality (error magnitude + tracker confidence drop)
 T(x) — boundary transversality (gradient non-alignment across class probabilities)
@@ -12,8 +14,7 @@ M(x) — multi-scale persistence (sublevel-set persistent homology of the error 
 The weight modulates control updates near ambiguous decision regions. On a 230-run Raspberry Pi 4 benchmark, IKKA reduces the 95th-percentile lateral error by 24 % under stress conditions while increasing throughput from 20.0 to 24.8 Hz.
 
 Repository structure
-ikka/├── weight.py # W(x) = E(x) · T(x) · M(x)├── extremality.py # E component├── transversality.py # T component├── persistence.py # M component (sublevel-set persistent homology)└── control.py # bounded IBVS yaw-rate commandtests/└── test_weight.py # smoke testsanalysis.py # benchmark replay over manifest.csvmanifest.csv # 230-run experiment manifestrequirements.txtLICENSE # MIT
-
+ikka/├── weight.py          # W(x) = E(x) · T(x) · M(x)├── extremality.py     # E component├── transversality.py  # T component├── persistence.py     # M component (sublevel-set persistent homology)└── control.py         # bounded IBVS yaw-rate commandtests/└── test_weight.py     # smoke testsanalysis.py            # benchmark replay over manifest.csvmanifest.csv           # 230-run experiment manifestrequirements.txtLICENSE                # MIT
 Installation
 git clone https://github.com/dasha169/ikka.gitcd ikkapip install -r requirements.txt
 Reproducing the benchmark
@@ -35,3 +36,4 @@ Citation
 @article{ikka2026,  title   = {IKKA: Inversion Classification via Critical Anomalies for Robust Visual Servoing},  author  = {Pavlenko, Darya},  journal = {arXiv preprint arXiv:2604.08754},  year    = {2026}}
 License
 MIT — see LICENSE.
+
